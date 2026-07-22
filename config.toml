@@ -22,8 +22,9 @@ theme = "hugo-theme-learn"
   [Languages.en]
     title = "Internship Report"
     weight = 1
-    label = "English"
     languageCode = "en"
+    languageName = "English"
+    label = "English"
 
     [[Languages.en.menu.shortcuts]]
       name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
@@ -40,8 +41,9 @@ theme = "hugo-theme-learn"
   [Languages.vi]
     title = "Báo cáo thực tập"
     weight = 2
-    label = "Tiếng Việt"
     languageCode = "vi"
+    languageName = "Tiếng Việt"
+    label = "Tiếng Việt"
 
     [[Languages.vi.menu.shortcuts]]
       name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
