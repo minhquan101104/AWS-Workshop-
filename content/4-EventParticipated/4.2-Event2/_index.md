@@ -51,7 +51,7 @@ pre: " <b> 4.2. </b> "
 
 #### Event Gallery
 
-{{< figure src="images/event2.jpg" title="AWS Seminar Presentation 1" >}}
-{{< figure src="images/event2.1.jpg" title="AWS Seminar Presentation 2" >}}
+{{< figure src="/images/event2.jpg" title="AWS Seminar Presentation 1" >}}
+{{< figure src="/images/event2.1.jpg" title="AWS Seminar Presentation 2" >}}
 
 > **Summary:** The seminar provided rich practical knowledge, closely connecting infrastructure operations (Monitoring/SLA), structured knowledge validation (Certification), and cutting-edge security trends with Generative AI.

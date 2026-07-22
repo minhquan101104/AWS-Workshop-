@@ -24,7 +24,7 @@ The solution removes the need for constant manual log review, cuts detection-to-
 ### 3. Solution Architecture
 The platform runs in a dedicated VPC (`netmon-infra-vpc`, 10.0.0.0/16) containing a Public Subnet with a single EC2 instance acting as the monitored target. All data processing components (Lambda, DynamoDB, Bedrock Agent, SNS, SQS) are intentionally **not VPC-attached**, since they only interact with managed AWS services via the AWS Public API and IAM — avoiding unnecessary NAT Gateway cost and cold-start latency.
 
-{{< figure src="images/2-Proposal/netmon_architecture.png" title="NetMon Architecture Overview" >}}
+{{< figure src="/images/2-Proposal/netmon_architecture.png" title="NetMon Architecture Overview" >}}
 
 ### AWS Services Used
 - **Amazon VPC / EC2**: Hosts the monitored target instance inside a Public Subnet with restricted Security Group rules.
