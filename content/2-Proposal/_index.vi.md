@@ -24,7 +24,7 @@ Giải pháp loại bỏ nhu cầu rà soát log thủ công liên tục, rút n
 ### 3. Kiến trúc giải pháp
 Nền tảng chạy trong 1 VPC riêng (`netmon-infra-vpc`, 10.0.0.0/16) chứa Public Subnet với 1 EC2 instance đóng vai trò mục tiêu giám sát. Toàn bộ thành phần xử lý dữ liệu (Lambda, DynamoDB, Bedrock Agent, SNS, SQS) **có chủ đích không VPC-attach**, vì chỉ tương tác với managed service của AWS qua Public API và IAM — tránh chi phí NAT Gateway và độ trễ cold-start không cần thiết.
 
-{{< figure src="/images/2-Proposal/netmon_architecture.png" title="Kiến trúc tổng quan NetMon" >}}
+![Kiến trúc tổng quan NetMon](images/2-Proposal/netmon_architecture.png)
 
 ### Các dịch vụ AWS sử dụng
 - **Amazon VPC / EC2**: Chứa instance mục tiêu giám sát trong Public Subnet, Security Group giới hạn chặt.

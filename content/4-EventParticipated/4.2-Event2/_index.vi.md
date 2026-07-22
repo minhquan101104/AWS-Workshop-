@@ -51,7 +51,7 @@ pre: " <b> 4.2. </b> "
 
 #### Hình ảnh thực tế tại sự kiện
 
-{{< figure src="/images/event2.jpg" title="AWS Seminar Presentation 1" >}}
-{{< figure src="/images/event2.1.jpg" title="AWS Seminar Presentation 2" >}}
+![AWS Seminar Presentation 1](images/event2.jpg)
+![AWS Seminar Presentation 2](images/event2.1.jpg)
 
 > **Tổng kết:** Buổi Seminar mang lại lượng kiến thức thực chiến phong phú, kết nối chặt chẽ giữa tư duy vận hành hệ thống (Monitoring/SLA), chuẩn hóa kiến thức (Certification) và xu hướng bảo mật tiên tiến với Generative AI.
