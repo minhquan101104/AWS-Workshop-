@@ -39,7 +39,7 @@ theme = "hugo-theme-learn"
       weight = 20
 
   [Languages.vi]
-    title = "Báo cáo thực tập"
+    title = "Nhật kí thực tập"
     weight = 2
     languageCode = "vi"
     languageName = "Tiếng Việt"
