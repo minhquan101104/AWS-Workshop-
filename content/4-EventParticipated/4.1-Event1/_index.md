@@ -47,6 +47,6 @@ A memorable journey featuring over 100 students starting as early as 5:00 AM, tr
 #### Event Gallery
 
 ![Study Tour AWS Bitexco 1](/images/event1.jpg)
-![Study Tour AWS Bitexco 2]/images/event1.1.jpg)
+![Study Tour AWS Bitexco 2](/images/event1.1.jpg)
 
 > **Summary:** The Study Tour not only provided a comprehensive view of operating enterprise-scale cloud systems, but also strongly inspired a proactive "learning-by-doing" mindset in the AI era.
