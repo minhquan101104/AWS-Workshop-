@@ -46,8 +46,8 @@ Hành trình đáng nhớ của hơn 100 sinh viên khởi hành từ 5 giờ s�
 
 #### Hình ảnh thực tế tại sự kiện
 
-![Study Tour AWS Bitexco 1](images/event1.jpg)
-![Study Tour AWS Bitexco 2](images/event1.1.jpg)
+![Study Tour AWS Bitexco 1](/images/event1.jpg)
+![Study Tour AWS Bitexco 2](/images/event1.1.jpg)
 
 > **Tổng kết:** Sự kiện Study Tour không chỉ mang lại cái nhìn toàn cảnh về cách vận hành hệ thống Cloud ở quy mô doanh nghiệp lớn, mà còn truyền cảm hứng mạnh mẽ về tinh thần chủ động "thực chiến" trong kỷ nguyên AI.
 
