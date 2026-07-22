@@ -1,57 +1,31 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Explore Amazon VPC virtual networking architecture, subnets, route tables, and Internet Gateways.
+* Differentiate security mechanisms between Security Groups and Network ACLs; practice provisioning EC2 instances and S3 storage.
+* Survey real-world use cases suggested by the internship mentor and align project orientation for the graduation thesis.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Study Amazon VPC virtual network architecture, CIDR blocks, Public and Private Subnets.<br>- Learn network routing mechanisms using Route Tables, Internet Gateways (IGW), and NAT Gateways.<br>- Compare firewall security controls between Security Groups (Stateful) and Network ACLs (Stateless). | 11/05/2026 | 11/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Dive deep into Amazon EC2 virtual servers and instance family classifications.<br>- Explore Amazon S3 object storage and Amazon EBS block storage services.<br>- Learn key pair creation and management for secure SSH remote access to EC2 from local machines. | 12/05/2026 | 12/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - **Practice:**<br>&emsp; + Provision a complete Amazon VPC with Public/Private Subnets.<br>&emsp; + Launch an Ubuntu EC2 instance, assign Security Group with open ports 22/80, and test SSH connection.<br>&emsp; + Create an Amazon S3 Bucket, configure default encryption, and upload test files. | 13/05/2026 | 13/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Survey practical enterprise problems suggested by AWS Vietnam for the FCAJ program.<br>- Research trends in applying Artificial Intelligence (AI/ML) and Generative AI to cloud infrastructure.<br>- Conduct team discussions to select network security monitoring problem statements. | 14/05/2026 | 14/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Present initial project orientation and ideas to Mentor Nguyen Gia Hung.<br>- Analyze the real-world issue of Alert Fatigue in network security operations.<br>- Propose utilizing AI Agents for automated log parsing and incident isolation. | 15/05/2026 | 15/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Mastered architectural principles of isolated Amazon VPC environments and subnet isolation controls.
+* Gained hands-on skills in launching EC2 instances, attaching EBS volumes, configuring Security Groups, and securing SSH access.
+* Learned how to manage Amazon S3 buckets, Bucket Policies, and server-side data encryption.
+* Differentiated traffic filtering mechanisms between Security Groups (Stateful) and Network ACLs (Stateless).
+* Identified core pain points of Alert Fatigue in security monitoring and formulated the AI Agent proposal with the mentor.

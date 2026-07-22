@@ -1,59 +1,29 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện chi tiết bản đề xuất kỹ thuật và chuẩn hóa tài liệu dự án.
+* Xây dựng lộ trình triển khai kỹ thuật (Implementation Roadmap) chi tiết cho các tuần thực tập.
+* Chuẩn bị nguyên liệu nội dung cho giai đoạn nghiên cứu chuyên sâu các công nghệ liên quan.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Chi tiết hóa các cấu phần hạ tầng: S3 storage, Lambda Action Groups, DynamoDB log tables.<br>- Bổ sung mô tả chi tiết các luồng dữ liệu vào tài liệu đề xuất. | 25/05/2026 | 25/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Hoàn thiện biểu đồ tiến độ thực hiện (Roadmap) và phân bổ công việc theo các tuần thực tập.<br>- Cập nhật danh mục tài nguyên AWS dự kiến sử dụng. | 26/05/2026 | 26/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - Review lại nội dung tài liệu trên giao diện hiển thị báo cáo.<br>- Khắc phục các lỗi hiển thị hình ảnh, đường dẫn và bảng biểu trong tài liệu. | 27/05/2026 | 27/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Đóng gói và công bố phiên bản đề xuất hoàn chỉnh lên repository GitHub.<br>- Nhận phản hồi chính thức từ Advisor/Mentor về định hướng dự án. | 28/05/2026 | 28/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Tổng kết giai đoạn đề xuất dự án và lập kế hoạch cho các chủ đề nghiên cứu bài viết công nghệ tiếp theo. | 29/05/2026 | 29/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thiện 100% nội dung tài liệu đề xuất với đầy đủ bản vẽ kiến trúc và lộ trình triển khai.
+* Chốt đề tài và phương án kỹ thuật chính thức cho kỳ thực tập.
+* Sẵn sàng chuyển sang giai đoạn thực thi dự án và viết bài chia sẻ tri thức.

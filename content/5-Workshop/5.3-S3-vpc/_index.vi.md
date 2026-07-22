@@ -1,18 +1,18 @@
 ---
-title : "Truy cập S3 từ VPC"
-date : 2024-01-01 
+title : "Lớp Mạng (Networking)"
+date : 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Sử dụng Gateway endpoint
+#### Xây dựng Networking Layer
 
-Trong phần này, bạn sẽ tạo một Gateway endpoint để truy cập Amazon S3 từ một EC2 instance. Gateway endpoint sẽ cho phép tải một object lên S3 bucket mà không cần sử dụng Internet Công cộng. Để tạo endpoint, bạn phải chỉ định VPC mà bạn muốn tạo endpoint và dịch vụ (trong trường hợp này là S3) mà bạn muốn thiết lập kết nối.
+Trong mục này, bạn sẽ xây dựng nền tảng mạng cho hệ thống giám sát: 1 VPC riêng, 1 Public Subnet, và 1 EC2 instance mục tiêu được để lộ có chủ đích nhằm thu hút traffic mạng thật. Đây chính là nguồn dữ liệu mà phần còn lại của pipeline (VPC Flow Logs, Lambda, Bedrock Agent) sẽ phân tích ở các mục sau.
 
 ![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
 
 #### Nội dung
 
-- [Tạo gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+- [Tạo VPC và EC2 instance mục tiêu](5.3.1-create-vpc-ec2/)
+- [Kiểm tra kết nối tới instance mục tiêu](5.3.2-test-connectivity/)

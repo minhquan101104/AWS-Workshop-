@@ -5,111 +5,117 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# AI Agent-based Network Security Monitoring System on AWS
+## An Autonomous Serverless Solution for Real-Time Network Threat Detection and Response
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The Network Security Monitoring Platform is an autonomous threat detection and response system built entirely on AWS Serverless services. It captures network traffic via VPC Flow Logs, uses Amazon Bedrock Agent to reason over the data, and automatically classifies severity, deduplicates alerts, escalates repeated attacks, and executes defensive actions (email alerts, IP blocking via Network ACL). The system reduces manual SOC (Security Operations Center) workload and shortens detection-to-response time from hours to seconds.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+### What's the Problem?
+Traditional network monitoring relies on human analysts to review logs, correlate events, and manually decide on a response. This does not scale, is prone to alert fatigue, and results in delayed reaction to active threats such as port scanning or brute-force attempts.
 
 ### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+The platform uses VPC Flow Logs to capture ACCEPT/REJECT traffic, Amazon S3 as the raw log data lake, AWS Lambda for event-driven preprocessing, and Amazon DynamoDB to store traffic statistics and audit trails. An Amazon Bedrock Agent (Amazon Nova Pro) autonomously orchestrates four Action Group tools to analyze traffic, detect anomalies (with whitelist, deduplication, and escalation logic), send alerts via Amazon SNS, and block malicious IPs through Network ACL. Amazon Bedrock Guardrails protects the Agent against prompt-injection attempts.
 
 ### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+The solution removes the need for constant manual log review, cuts detection-to-alert time to near real-time, and creates a reusable reference architecture for AI-driven security automation. Being fully serverless, the platform incurs cost only when actively processing events, keeping monthly operating cost low while remaining scalable if traffic volume grows.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The platform runs in a dedicated VPC (`netmon-infra-vpc`, 10.0.0.0/16) containing a Public Subnet with a single EC2 instance acting as the monitored target. All data processing components (Lambda, DynamoDB, Bedrock Agent, SNS, SQS) are intentionally **not VPC-attached**, since they only interact with managed AWS services via the AWS Public API and IAM — avoiding unnecessary NAT Gateway cost and cold-start latency.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![NetMon Architecture Overview](/images/2-Proposal/netmon_architecture.png)
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+- **Amazon VPC / EC2**: Hosts the monitored target instance inside a Public Subnet with restricted Security Group rules.
+- **VPC Flow Logs**: Captures ACCEPT + REJECT traffic at 1-minute aggregation.
+- **Amazon S3**: Stores raw Flow Logs as the ingestion data lake (SSE-KMS encrypted).
+- **AWS Lambda**: 5 functions — `preprocess-logs`, `getNetworkMetrics`, `checkTrafficAnomaly`, `sendAlert`, `blockIP`.
+- **Amazon DynamoDB**: `traffic-stats` (network metrics) and `agent-decisions` (audit trail) tables, KMS-encrypted with Point-in-Time Recovery enabled.
+- **Amazon Bedrock Agent**: Central AI orchestrator (Amazon Nova Pro model) reasoning over 4 Action Group tools.
+- **Amazon Bedrock Guardrails**: Blocks prompt-injection and system-prompt exploitation attempts.
+- **Amazon SNS**: Delivers email alerts to the security team.
+- **Amazon SQS**: Dead Letter Queue protecting the asynchronous S3-triggered preprocessing Lambda.
+- **Amazon CloudWatch**: Dashboard (8 widgets) for logs, metrics, and operational visibility.
+- **AWS IAM**: Least-privilege roles scoped per Lambda function.
+- **AWS Shield Standard**: Baseline DDoS protection (automatic, no configuration required).
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Target Instance**: EC2 in the Public Subnet intentionally exposed to capture real attack traffic for detection testing.
+- **Data Ingestion**: VPC Flow Logs → S3 → S3 Event Notification triggers `preprocess-logs` Lambda.
+- **Data Storage**: DynamoDB stores per-IP traffic statistics and every Agent decision as an immutable audit trail.
+- **AI Reasoning**: Bedrock Agent autonomously calls `getNetworkMetrics` and `checkTrafficAnomaly`, then decides whether to call `sendAlert` and/or `blockIP` based on severity.
+- **Response Layer**: `sendAlert` publishes to SNS; `blockIP` writes a Network ACL entry when `REAL_BLOCK_ENABLED=true` (defaults to safe logged-only mode).
+- **Observability**: CloudWatch Dashboard visualizes anomaly trends, severity classification, alert history, and IP-blocking history.
 
 ### 4. Technical Implementation
 **Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+- Phase 1 — Network & Ingestion: Design VPC, deploy target EC2, configure VPC Flow Logs and S3 data lake.
+- Phase 2 — Data Pipeline: Build `preprocess-logs` Lambda, design DynamoDB schema, validate end-to-end ingestion.
+- Phase 3 — AI Agent: Research Bedrock Agent, design and implement all 4 Action Group Lambdas, connect to the Agent.
+- Phase 4 — Hardening & Reporting: Apply AWS Well-Architected review, enforce least-privilege IAM, add DLQ, enable KMS encryption and PITR, finalize documentation.
 
 **Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+- Practical knowledge of VPC networking, IAM least-privilege policy design, event-driven Lambda architecture, DynamoDB single-table design, and Amazon Bedrock Agent/Action Group configuration.
+- Testing tools: `nmap` for port-scan simulation, manual SSH brute-force simulation, and traffic-spike testing to validate detection logic.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+**Project Timeline** (~11-12 weeks, 05/05/2026 – 20/07/2026)
+- Weeks 1-3: Onboarding, self-selected topic proposal, initial network design (VPC, EC2, Security Group).
+- Weeks 4-5: VPC Flow Logs, S3 data lake, ingestion pipeline (Lambda + DynamoDB).
+- Weeks 6-8: Bedrock Agent research and implementation of all 4 Action Groups.
+- Weeks 9-10: Guardrails, CloudWatch Dashboard, realistic attack scenario testing.
+- Weeks 11-12: AWS Well-Architected review, security hardening, final report.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+The platform is fully serverless and event-driven, so cost scales with actual traffic volume rather than fixed infrastructure. Primary cost drivers are:
+- **Amazon Bedrock Agent invocations** (charged per token, largest variable cost).
+- **AWS Lambda** invocations and duration (within Free Tier for typical lab-scale traffic).
+- **Amazon DynamoDB** on-demand read/write capacity.
+- **Amazon S3** storage for raw Flow Logs (with lifecycle rules recommended for cost control).
+- **EC2** t3.micro (Free Tier eligible for the first 12 months).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+An exact AWS Pricing Calculator estimate depends on final traffic volume and Bedrock invocation frequency during testing; a detailed cost breakdown will be attached as a separate estimation file once testing volume is finalized.
 
 ### 7. Risk Assessment
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+- Bedrock Agent quota/rate limits: Medium impact, medium probability (new accounts have lower default quotas).
+- False positives/negatives in anomaly detection: Medium impact, medium probability.
+- Accidental real IP blocking during testing: High impact, low probability (mitigated by `REAL_BLOCK_ENABLED=false` default).
+- Single point of failure (Single-AZ): Medium impact, low probability during a short-term lab project.
+- No WAF in front of the target instance: intentional trade-off (see Section 9), compensated by Shield Standard and restrictive Security Group/NACL rules.
 
 #### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+- Quota: Fallback model selection, request throttling awareness.
+- Detection accuracy: Whitelist + deduplication + escalation logic to reduce noise.
+- Blocking safety: Safe-by-default logged-only mode; real blocking requires explicit opt-in.
+- Reliability: Dead Letter Queue on the asynchronous ingestion Lambda to prevent silent event loss.
 
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- `SYSTEM_PAUSED` kill-switch to halt the entire pipeline instantly if unexpected behavior occurs.
+- Manual review of DynamoDB audit trail if automated response needs to be verified or reverted.
 
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
+### 8. Security Considerations
+- **No WAF in front of the target instance**: an intentional design decision, since the target functions as a honeypot to capture real attack traffic — filtering it through WAF would defeat that purpose. Compensating controls: AWS Shield Standard (automatic baseline DDoS protection), Security Group egress deny-by-default, and no IAM Instance Profile attached to the target instance to limit blast radius if compromised.
+- **Encryption at rest**: S3 (SSE-KMS) and both DynamoDB tables (AWS managed KMS key) are encrypted, with Point-in-Time Recovery enabled on DynamoDB.
+- **Least-privilege IAM**: all 5 Lambda functions run under scoped, customer-managed policies with no `*FullAccess` managed policies attached.
+
+### 9. Known Limitations & Future Direction
+
+The following are architectural trade-offs made deliberately due to internship time constraints, disclosed here for transparency rather than left undiscovered:
+
+- **No AWS WAF in front of the target instance**: intentional — filtering traffic through WAF would require an ALB and would reduce visibility to HTTP/HTTPS only, defeating the goal of capturing raw port-scan traffic. Compensating controls: AWS Shield Standard (automatic), Security Group egress deny-by-default, no IAM Instance Profile on the target instance.
+- **Dead Letter Queue coverage**: only the S3-triggered `preprocess-logs` Lambda uses true asynchronous invocation, where DLQ semantics apply correctly. The four Action Group Lambdas are invoked synchronously by the Bedrock Agent; errors there are handled through the Agent's own retry/orchestration logic rather than DLQ.
+- **Synchronous Agent invocation**: `preprocess-logs` currently calls the Bedrock Agent synchronously (`[sync-blocking]`). Decoupling this via Amazon EventBridge + SQS would better follow serverless best practices and improve resilience under load.
+- **DynamoDB query pattern**: current Lambdas use `Scan()` rather than `Query()` with a Global Secondary Index. This is acceptable at current data volume but would need to be optimized before scaling to production traffic levels.
+- **Single Availability Zone**: acceptable for a time-boxed internship project; a production deployment would require Multi-AZ EC2/Auto Scaling and DynamoDB Global Tables for higher availability.
+- **No Infrastructure as Code**: the entire environment was provisioned manually through the AWS Console for learning purposes. Migrating to AWS CDK or Terraform is a natural next step for reproducibility and safer iteration.
+
+**Planned next steps**: add CloudWatch Alarms for proactive (rather than dashboard-only) monitoring, integrate AWS X-Ray for distributed tracing across the multi-Lambda pipeline, and evaluate Amazon SageMaker for a machine-learning-based anomaly model to reduce reliance on fixed thresholds.
+
+### 10. Expected Outcomes
+#### Technical Improvements
+Near real-time autonomous detection and response replacing manual log review.
+A reusable reference architecture for AI Agent-driven security automation on AWS.
 #### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+A working demonstration of applying generative AI (Amazon Bedrock Agent) to a real operational security use case, extensible to GuardDuty integration, Multi-AZ, and Infrastructure as Code in future iterations.

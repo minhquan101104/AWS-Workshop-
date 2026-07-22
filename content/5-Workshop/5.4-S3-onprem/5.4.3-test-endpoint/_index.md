@@ -1,59 +1,19 @@
 ---
-title : "Test the Interface Endpoint"
+title : "Verify Flow Logs delivery"
 date : 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 5.4.3 </b> "
 ---
 
-#### Get the regional DNS name of S3 interface endpoint
-1. From the Amazon VPC menu, choose Endpoints.
+Flow Logs can take a few minutes to start delivering. Use the traffic you generated in the earlier connectivity test (curl / nmap) to confirm data is flowing correctly.
 
-2. Click the name of newly created endpoint: s3-interface-endpoint. Click details and save the regional DNS name of the endpoint (the first one) to your text-editor for later use. 
+1. Open the S3 console → navigate into ```netmon-infra-flowlogs-8425```.
+2. Drill down through the auto-generated folder structure (```AWSLogs/<account-id>/vpcflowlogs/ap-southeast-1/<year>/<month>/<day>/```) until you find `.gz` log files.
 
-![dns name](/images/5-Workshop/5.4-S3-onprem/dns.png)
+![s3 folder structure](/images/5-Workshop/5.4-S3-onprem/s3-folders.png)
 
-
-#### Connect to EC2 instance in "VPC On-prem"
-
-1. Navigate to **Session manager** by typing "session manager" in the search box 
-
-2. Click **Start Session**, and select the EC2 instance named **Test-Interface-Endpoint**. This EC2 instance is running in "VPC On-prem" and will be used to test connectivty to Amazon S3 through the Interface endpoint we just created. Session Manager will open a new browser tab with a shell prompt: **sh-4.2 $**
-
-![Start session](/images/5-Workshop/5.4-S3-onprem/start-session.png)
-
-3. Change to the ssm-user's home directory with command "cd ~"
-
-4. Create a file named testfile2.xyz
-```
-fallocate -l 1G testfile2.xyz
-```
-
-![user](/images/5-Workshop/5.4-S3-onprem/cli1.png)
-
-
-5. Copy file to the same S3 bucket we created in section 3.2
-
-```
-aws s3 cp --endpoint-url https://bucket.<Regional-DNS-Name> testfile2.xyz s3://<your-bucket-name>
-``` 
-+ This command requires the --endpoint-url parameter, because you need to use the endpoint-specific DNS name to access S3 using an Interface endpoint.
-+ Do not include the leading ' * ' when copying/pasting the regional DNS name.
-+ Provide your S3 bucket name created earlier
-
-![copy file](/images/5-Workshop/5.4-S3-onprem/cli2.png)
-
-
-Now the file has been added to your S3 bucket. Let check your S3 bucket in the next step.
-
-#### Check Object in S3 bucket
-
-1. Navigate to S3 console
-2. Click Buckets
-3. Click the name of your bucket and you will see testfile2.xyz has been added to your bucket
-
-![check bucket](/images/5-Workshop/5.4-S3-onprem/check-bucket.png)
-
-
-
-
+3. Download and open one file to confirm it contains real traffic records, including entries from the earlier nmap/curl test.
+{{% notice tip %}}
+If no files appear after 5-10 minutes, double-check the Flow Log status is **Active** and that the correct VPC (not just the subnet) was selected in the previous step.
+{{% /notice %}}

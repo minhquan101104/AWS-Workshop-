@@ -1,58 +1,29 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu bài viết kỹ thuật 2: Ứng dụng Generative AI Agent trong tự động hóa ứng phó sự cố an ninh mạng trên AWS.
+* Phân tích các mô hình AI tiên tiến (Amazon Bedrock) và cơ chế Action Groups trong phản ứng sự cố.
+* Hoàn thiện các bài chia sẻ tri thức công nghệ cá nhân.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Tổng hợp tài liệu kiến trúc AI Agent tích hợp Amazon Bedrock và Lambda.<br>- Phân tích quy trình xử lý sự cố từ lúc nhận Log đến khi cô lập mối đe dọa. | 08/06/2026 | 08/06/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Phân tích vai trò của Bedrock Action Groups trong việc thực thi tự động các lệnh an ninh mạng trên AWS.<br>- Đánh giá độ chính xác và tính an toàn của mô hình Generative AI. | 09/06/2026 | 09/06/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - Biên soạn bài viết kỹ thuật 2 với chủ đề xây dựng AI Agent bảo mật tự động.<br>- Trình bày các đoạn mã nguồn mẫu Python (`boto3`) tương tác với Bedrock API. | 10/06/2026 | 10/06/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Cập nhật danh sách các bài viết đã công bố vào tài liệu báo cáo.<br>- Tối ưu liên kết ngoài và định dạng thẻ hiển thị cho cả 2 bài viết công nghệ. | 11/06/2026 | 11/06/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Kiểm tra tổng thể các nội dung bài đăng chia sẻ trên website báo cáo.<br>- Nhận phản hồi từ cộng đồng và Mentor để bổ sung các góc nhìn kỹ thuật. | 12/06/2026 | 12/06/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành bài viết kỹ thuật 2 chia sẻ kiến thức chuyên sâu về AI Agent Security trên AWS.
+* Hoàn thiện nhiệm vụ nghiên cứu và xuất bản các bài viết chuyên môn với đầy đủ liên kết công bố.
+* Lan tỏa giá trị công nghệ và khẳng định năng lực nghiên cứu ứng dụng AI/Cloud.

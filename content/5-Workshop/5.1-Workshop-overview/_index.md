@@ -6,13 +6,18 @@ chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+#### AI Agent-based Network Security Monitoring
++ Traditional network monitoring requires security analysts to manually review logs, correlate events across multiple sources, and decide on a response — a process that does not scale and is prone to delayed reaction against active threats.
++ **Amazon Bedrock Agent** enables a generative-AI model to autonomously reason over network telemetry, call specialized tools (Action Groups) to investigate further, and decide on an appropriate response — without a human in the loop for routine detection and triage.
 
 #### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+In this workshop, you will build a serverless, AI-driven network security monitoring system on AWS from the ground up.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
++ **Data Collection Layer**: A VPC with a target EC2 instance generates real network traffic, captured by **VPC Flow Logs** and stored in an **Amazon S3** data lake.
++ **Data Processing Layer**: An **AWS Lambda** function triggered by S3 Events parses the raw logs and stores per-IP traffic statistics in **Amazon DynamoDB**.
++ **AI Agent Layer**: An **Amazon Bedrock Agent** autonomously calls four Action Group tools — read network metrics, detect anomalies (with whitelist, deduplication, and severity escalation), send alerts via **Amazon SNS**, and block malicious IPs via **Network ACL**.
++ **Security Layer**: **Amazon Bedrock Guardrails** protects the Agent from prompt-injection attempts, and every Lambda runs under a least-privilege **IAM** role.
+
+By the end of this workshop, you will have a working end-to-end pipeline that can detect a simulated port scan or brute-force attack, autonomously classify its severity, and respond — all without manual intervention.
+
+![NetMon Architecture Overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)

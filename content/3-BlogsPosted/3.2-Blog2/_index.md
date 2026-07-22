@@ -1,31 +1,84 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
 
-Key points to know:
+# Welcoming the AWS Customer Incident Response Team (CIRT)
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+As cloud adoption continues to grow, organizations face increasingly complex security challenges. To help customers strengthen their security posture and effectively respond to incidents, AWS introduced the AWS Customer Incident Response Team (CIRT).
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+The AWS Customer Incident Response Team is a specialized group of security experts dedicated to assisting AWS customers during security events. Their mission is to help organizations prepare for, investigate, contain, and recover from cybersecurity incidents in AWS environments.
 
-...Image...
+## Key Highlights
 
-...Link...
+### Security Incident Support
 
-...Guide...
+AWS CIRT provides guidance and expertise during various security incidents, including:
+
+* Unauthorized access attempts
+* Credential compromise
+* Malware infections
+* Ransomware incidents
+* Suspicious account activities
+* Data exposure investigations
+
+### Incident Response Best Practices
+
+AWS recommends customers follow established security practices:
+
+* Enable Multi-Factor Authentication (MFA)
+* Apply least-privilege IAM permissions
+* Monitor activities using AWS CloudTrail
+* Use Amazon GuardDuty for threat detection
+* Enable AWS Config for compliance monitoring
+* Maintain backup and recovery procedures
+
+### Proactive Security Preparation
+
+Organizations should prepare before incidents occur by:
+
+* Developing an Incident Response Plan
+* Performing regular security assessments
+* Conducting security awareness training
+* Implementing centralized logging
+* Defining escalation procedures
+
+### Shared Responsibility Model
+
+AWS CIRT operates within the AWS Shared Responsibility Model:
+
+* AWS is responsible for security *of* the cloud.
+* Customers are responsible for security *in* the cloud.
+
+Understanding these responsibilities helps organizations build stronger security controls and incident response processes.
+
+## Benefits of AWS CIRT
+
+By leveraging AWS CIRT expertise, customers can:
+
+* Reduce incident response time
+* Improve investigation accuracy
+* Minimize business impact
+* Strengthen security posture
+* Learn from real-world security scenarios
+
+## What I Learned
+
+After reading this article, I gained a better understanding of:
+
+* AWS incident response processes
+* Security best practices in cloud environments
+* The importance of proactive security planning
+* How AWS supports customers during cybersecurity incidents
+* The value of monitoring and threat detection services
+
+## Reference
+
+AWS Security Blog:
+
+https://aws.amazon.com/vi/blogs/security/welcoming-the-aws-customer-incident-response-team/

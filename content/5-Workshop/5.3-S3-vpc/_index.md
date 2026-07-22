@@ -1,18 +1,18 @@
 ---
-title : "Access S3 from VPC"
+title : "Networking Layer"
 date : 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Using Gateway endpoint
+#### Building the Networking Layer
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+In this section, you will build the foundational network for the monitoring system: a dedicated VPC, a Public Subnet, and a target EC2 instance that will be intentionally exposed to capture real network traffic. This traffic is what the rest of the pipeline (VPC Flow Logs, Lambda, Bedrock Agent) will analyze in later sections.
 
 ![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
 
 #### Content
 
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+- [Create VPC and target EC2 instance](5.3.1-create-vpc-ec2/)
+- [Test connectivity to the target instance](5.3.2-test-connectivity/)

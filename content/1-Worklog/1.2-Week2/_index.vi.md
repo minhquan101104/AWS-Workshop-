@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu kiến trúc mạng ảo Amazon VPC, các phân vùng Subnet, Route Table và Internet Gateway.
+* Phân biệt cơ chế bảo mật của Security Group và Network ACL; thực hành cấu hình máy chủ EC2 và kho lưu trữ S3.
+* Khảo sát các bài toán thực tế do đơn vị gợi ý và định hướng đề tài thực tập tốt nghiệp.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Nghiên cứu kiến trúc mạng ảo Amazon VPC, dải IP CIDR, Public và Private Subnets.<br>- Tìm hiểu cách định tuyến mạng bằng Route Table, Internet Gateway (IGW) và NAT Gateway.<br>- Phân biệt cơ chế bảo mật tường lửa của Security Group (Stateful) và Network ACL (Stateless). | 11/05/2026 | 11/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Tìm hiểu chuyên sâu dịch vụ máy chủ ảo Amazon EC2 và các nhóm Instance Types.<br>- Khảo sát dịch vụ lưu trữ đối tượng Amazon S3, lưu trữ khối Amazon EBS.<br>- Học cách tạo và quản lý Key Pair để kết nối SSH an toàn từ máy cá nhân vào EC2. | 12/05/2026 | 12/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - **Thực hành:**<br>&emsp; + Khởi tạo một Amazon VPC hoàn chỉnh kèm Public/Private Subnet.<br>&emsp; + Dựng máy chủ EC2 Ubuntu, gắn Security Group mở cổng 22, 80 và SSH kiểm thử.<br>&emsp; + Tạo Amazon S3 Bucket, cấu hình mã hóa mặc định và tải tệp kiểm thử. | 13/05/2026 | 13/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Khảo sát các định hướng bài toán thực tế do AWS Việt Nam gợi ý cho chương trình FCAJ.<br>- Nghiên cứu xu hướng ứng dụng Trí tuệ nhân tạo (AI/ML) và Generative AI trong hạ tầng đám mây.<br>- Họp nhóm thảo luận lựa chọn bài toán giám sát an ninh mạng. | 14/05/2026 | 14/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Báo cáo định hướng ý tưởng đề tài bước đầu với Mentor Nguyễn Gia Hưng.<br>- Phân tích thực trạng bùng nổ cảnh báo giả (Alert Fatigue) trong vận hành mạng.<br>- Đề xuất hướng ứng dụng AI Agent để tự động hóa quá trình rà soát log và cô lập sự cố. | 15/05/2026 | 15/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+* Nắm vững tư duy thiết kế mô hình mạng ảo cô lập Amazon VPC và cơ chế phân vùng bảo mật Subnet.
+* Thành thạo kỹ năng khởi tạo máy chủ EC2, gắn ổ cứng EBS, cấu hình Security Group và kết nối SSH an toàn.
+* Hiểu cách tạo kho lưu trữ Amazon S3, quản lý quyền truy cập Bucket Policy và mã hóa dữ liệu.
+* Phân biệt rõ cơ chế chặn/mở traffic của Security Group (Stateful) và Network ACL (Stateless).
+* Nhận diện được bài toán Alert Fatigue trong giám sát hạ tầng và định hình được đề xuất giải pháp AI Agent với Mentor.
 

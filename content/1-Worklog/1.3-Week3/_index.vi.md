@@ -1,59 +1,29 @@
 ---
 title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 3:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu bài toán thực tế và lập đề xuất giải pháp cho dự án giám sát, ứng phó sự cố an ninh mạng.
+* Phân tích các dịch vụ AWS cốt lõi: Amazon Bedrock, AWS Lambda, Amazon SNS và DynamoDB.
+* Thiết kế sơ đồ kiến trúc hệ thống tổng thể và luồng tương tác dữ liệu.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Thu thập yêu cầu hệ thống và bài toán tự động hóa ứng phó sự cố an ninh mạng.<br>- Xác định phạm vi dự án và các mục tiêu kỹ thuật cần đạt được. | 18/05/2026 | 18/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Phân tích giải pháp kết hợp Generative AI (Amazon Bedrock) với kiến trúc Serverless (Lambda).<br>- Đánh giá tính khả thi và chi phí vận hành hạ tầng trên AWS. | 19/05/2026 | 19/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - Thiết kế sơ đồ kiến trúc hệ thống (System Architecture Diagram) chi tiết.<br>- Mô tả luồng tương tác từ lúc phát hiện sự cố đến khi AI Agent thực hiện hành động ngăn chặn. | 20/05/2026 | 20/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Soạn thảo tài liệu đề xuất giải pháp kỹ thuật tổng quan cho dự án.<br>- Trình bày các phần: Tổng quan bài toán, Giải pháp đề xuất, Kiến trúc hệ thống và Kế hoạch triển khai. | 21/05/2026 | 21/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Trình bày bản thảo đề xuất với Mentor để nhận góp ý và tinh chỉnh kiến trúc.<br>- Cập nhật bản vẽ kiến trúc và hoàn thiện tài liệu đề xuất dự án. | 22/05/2026 | 22/05/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
-### Kết quả đạt được tuần 3:
+### Kết quả đạt me đạt được tuần 3:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Khởi tạo thành công tài liệu đề xuất giải pháp kỹ thuật cho dự án.
+* Chốt sơ đồ kiến trúc hạ tầng Cloud tích hợp AI Agent ứng phó sự cố tự động.
+* Tạo tiền đề vững chắc để hoàn thiện chi tiết kế hoạch triển khai ở tuần tiếp theo.

@@ -1,59 +1,29 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+date: 2026-07-13
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hiện tự đánh giá kết quả đạt được sau kỳ thực tập (Self-evaluation).
+* Phân tích các kỹ năng chuyên môn (Cloud, AI, Serverless) và kỹ năng mềm đã trau dồi được.
+* Soạn thảo và hoàn thiện nội dung hồ sơ tự đánh giá cá nhân.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | - Tổng hợp lại toàn bộ các sản phẩm đã hoàn thành trong kỳ thực tập: Đề xuất kỹ thuật, 2 Bài viết công nghệ, 1 Seminar và Bài hướng dẫn thực hành hoàn chỉnh.<br>- Đánh giá mức độ hoàn thành so với mục tiêu đề ra ban đầu. | 13/07/2026 | 13/07/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **3** | - Tự đánh giá sự phát triển năng lực chuyên môn: Tư duy kiến trúc Cloud, lập trình Serverless Python (`boto3`), quản trị bảo mật IAM và Generative AI (Amazon Bedrock). | 14/07/2026 | 14/07/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **4** | - Tự đánh giá sự cải thiện kỹ năng mềm: Kỹ năng viết báo cáo kỹ thuật, kỹ năng quản lý thời gian, tư duy giải quyết vấn đề và giao tiếp làm việc. | 15/07/2026 | 15/07/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **5** | - Soạn thảo bài viết Tự đánh giá chi tiết.<br>- Phân tích điểm mạnh, điểm cần cải thiện và định hướng phát triển sự nghiệp tương lai. | 16/07/2026 | 16/07/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
+| **6** | - Review định dạng trang Tự đánh giá trên giao diện báo cáo.<br>- Xin ý kiến nhận xét sơ bộ từ Mentor về phần tự đánh giá cá nhân. | 17/07/2026 | 17/07/2026 | https://cloudjourney.awsstudygroup.com/vi/ |
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành 100% nội dung hồ sơ Tự đánh giá cá nhân.
+* Nhìn nhận rõ ràng sự trưởng thành về cả kỹ năng chuyên môn Cloud/AI lẫn thái độ làm việc chuyên nghiệp.
+* Xác định rõ lộ trình phát triển bản thân trong lĩnh vực Điện toán đám mây sau khi tốt nghiệp.

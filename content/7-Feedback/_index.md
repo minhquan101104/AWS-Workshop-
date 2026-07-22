@@ -6,42 +6,42 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
-
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The learning and working environment at FCAJ is highly dynamic, open, and technology-driven. Thanks to the flexible hybrid model combining online collaboration and offline sessions, team members actively connect and support each other anytime, anywhere. The community workspace is clean, comfortable, and highly conducive to deep focus. However, if the Organizing Committee could add a few small-scale social or team-building activities between groups, members would have more opportunities to connect and understand each other better.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+The Mentors and Admins are exceptionally dedicated. In-depth Lab materials and cloud resources are allocated systematically according to our learning progress. I particularly appreciate the mentors' coaching approach: instead of providing immediate solutions to system bugs, they guide and encourage us to inspect logs and conduct Root Cause Analysis to solve problems independently, greatly sharpening our troubleshooting mindset.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The hands-on project ("Amazon Redshift Performance Optimization and Automated Incident Troubleshooting with AI Agent") was perfectly aligned with my Software Engineering major. It solidified my backend and data processing foundation while expanding my capabilities in applying AI to Cloud environments.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+I experienced holistic growth in both technical capabilities and soft skills, including self-research mindset, time management, technical writing, and teamwork.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The program strongly promotes a "Think Big" attitude and equality. There is no hierarchical distance, and the team always stands together to support one another through challenging Labs or tight project deadlines.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+Being granted AWS Credits for hands-on practice and having exclusive access to technical Workshops and Study Tours with AWS experts are invaluable benefits for final-year students.
 
 ---
 
 ### Additional Questions
 - What did you find **most satisfying** during your internship?  
+My breakthrough in technical mindset — evolving from pure programming to hands-on experience in optimizing Amazon Redshift and applying AI Agents to manage and operate Cloud systems.
 - What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+Setting up a stricter automated Budget Alert system for intern Lab accounts to prevent accidental infinite loops or heavy queries from draining credits early on.
+- If recommending to a friend, would you **suggest they intern here**? Why or why not? 
+Definitely yes. This is the most practical and high-quality program for any IT student aspiring to pursue Cloud/DevOps engineering. 
 
 ---
 
 ### Suggestions & Expectations
 - Do you have any suggestions to improve the internship experience?  
+I suggest increasing group Code & Architecture Review sessions where mentors can deconstruct sample projects to point out Technical Debt and share Best Practices more visually.
 - Would you like to continue this program in the future?  
+I would love to continue accompanying the program or contributing to the ecosystem as an AWS Community Builder.
 - Any other comments (free sharing):
+I would like to express my sincere gratitude to the Organizing Committee and Mentors for creating such a valuable journey, giving me the confidence to step forward as a professional Software/Cloud Engineer!

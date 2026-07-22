@@ -1,31 +1,84 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
 
-Các điểm chính cần nắm:
+# Giới thiệu AWS Customer Incident Response Team (CIRT)
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+Khi các tổ chức ngày càng chuyển đổi lên nền tảng đám mây, các mối đe dọa và sự cố bảo mật cũng trở nên phức tạp hơn. Để hỗ trợ khách hàng nâng cao khả năng bảo mật và ứng phó với các sự cố an ninh mạng, AWS đã xây dựng AWS Customer Incident Response Team (CIRT).
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+AWS CIRT là đội ngũ chuyên gia bảo mật có nhiệm vụ hỗ trợ khách hàng AWS trong quá trình chuẩn bị, điều tra, xử lý và khôi phục sau các sự cố bảo mật.
 
-...Hình ảnh...
+## Những nội dung nổi bật
 
-...Link...
+### Hỗ trợ xử lý sự cố bảo mật
 
-...Hướng dẫn...
+AWS CIRT hỗ trợ khách hàng trong nhiều tình huống như:
+
+* Truy cập trái phép vào tài khoản AWS
+* Lộ hoặc đánh cắp thông tin xác thực
+* Nhiễm mã độc hoặc ransomware
+* Hoạt động đáng ngờ trong tài khoản
+* Điều tra các trường hợp rò rỉ dữ liệu
+* Xử lý các cuộc tấn công an ninh mạng
+
+### Thực hành bảo mật được AWS khuyến nghị
+
+AWS khuyến nghị khách hàng áp dụng các biện pháp:
+
+* Kích hoạt xác thực đa yếu tố (MFA)
+* Áp dụng nguyên tắc Least Privilege
+* Theo dõi hoạt động bằng AWS CloudTrail
+* Sử dụng Amazon GuardDuty để phát hiện mối đe dọa
+* Bật AWS Config để giám sát tuân thủ
+* Xây dựng cơ chế sao lưu và khôi phục dữ liệu
+
+### Chuẩn bị trước khi xảy ra sự cố
+
+Các tổ chức nên chuẩn bị:
+
+* Kế hoạch ứng phó sự cố (Incident Response Plan)
+* Đánh giá bảo mật định kỳ
+* Đào tạo nhận thức an toàn thông tin
+* Hệ thống ghi log tập trung
+* Quy trình leo thang xử lý sự cố
+
+### Mô hình trách nhiệm chia sẻ
+
+AWS CIRT hoạt động dựa trên mô hình Shared Responsibility Model:
+
+* AWS chịu trách nhiệm bảo mật *của hạ tầng đám mây*.
+* Khách hàng chịu trách nhiệm bảo mật *trên môi trường đám mây của mình*.
+
+Việc hiểu rõ mô hình này giúp tổ chức triển khai các biện pháp bảo vệ phù hợp hơn.
+
+## Lợi ích của AWS CIRT
+
+AWS CIRT mang lại nhiều lợi ích:
+
+* Rút ngắn thời gian xử lý sự cố
+* Nâng cao hiệu quả điều tra
+* Giảm thiểu tác động đến hoạt động kinh doanh
+* Cải thiện khả năng bảo mật tổng thể
+* Học hỏi từ các tình huống thực tế
+
+## Kiến thức đạt được
+
+Sau khi tìm hiểu bài viết, tôi đã hiểu rõ hơn về:
+
+* Quy trình ứng phó sự cố trên AWS
+* Các thực hành bảo mật quan trọng
+* Vai trò của AWS CIRT
+* Tầm quan trọng của việc chuẩn bị trước sự cố
+* Các dịch vụ AWS hỗ trợ giám sát và phát hiện mối đe dọa
+
+## Tài liệu tham khảo
+
+AWS Security Blog:
+
+https://aws.amazon.com/vi/blogs/security/welcoming-the-aws-customer-incident-response-team/

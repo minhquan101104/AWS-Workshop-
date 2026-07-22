@@ -1,20 +1,20 @@
 ---
-title : "Access S3 from on-premises"
+title : "VPC Flow Logs & S3 Data Lake"
 date : 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 5.4. </b> "
 ---
 
-#### Overview
+#### Building the Data Collection Layer
 
-+ In this section, you will create an Interface endpoint to access Amazon S3 from a simulated on-premises environment. The Interface endpoint will allow you to route to Amazon S3 over a VPN connection from your simulated on-premises environment.
+In this section, you will configure **VPC Flow Logs** to capture all network traffic (ACCEPT + REJECT) hitting the target EC2 instance, and set up **Amazon S3** as the raw log data lake. This is the entry point of the entire detection pipeline — every downstream Lambda and the Bedrock Agent ultimately depend on data captured here.
 
-+ Why using **Interface endpoint**: 
-    + Gateway endpoints only work with resources running in the VPC where they are created. Interface endpoints work with resources running in VPC, and also resources running in on-premises environments. Connectivty from your on-premises environment to the cloud can be provided by AWS Site-to-Site VPN or AWS Direct Connect.
-    + Interface endpoints allow you to connect to services powered by AWS PrivateLink. These services include some AWS services, services hosted by other AWS customers and partners in their own VPCs (referred to as PrivateLink Endpoint Services), and supported AWS Marketplace Partner services. For this workshop, we will focus on connecting to Amazon S3.
+![overview](/images/5-Workshop/5.4-S3-onprem/diagram3.png)
 
-![Interface endpoint architecture](/images/5-Workshop/5.4-S3-onprem/diagram3.png)
+#### Content
 
-
-
+- [Prepare the S3 bucket](5.4.1-prepare/)
+- [Enable VPC Flow Logs](5.4.2-create-interface-enpoint/)
+- [Verify Flow Logs delivery](5.4.3-test-endpoint/)
+- [Configure S3 Event Notification](5.4.4-dns-simulation/)
