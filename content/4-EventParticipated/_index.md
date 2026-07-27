@@ -26,3 +26,14 @@ During my 3-month internship, I had the opportunity to participate in two events
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 
 &emsp;**Role:** Attendee  
+
+
+
+### [Event 3](4.3-Event3/)  
+&emsp;**Event Name:** Hackathon Experiences and Key Takeaways Shared by Seniors / Mentors
+
+&emsp;**Date & Time:** 09:00 - 12:00, July 25, 2026
+
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+
+&emsp;**Role:** Attendee

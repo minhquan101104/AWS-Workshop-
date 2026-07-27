@@ -26,3 +26,13 @@ pre: " <b> 4. </b> "
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 
+
+
+### [Event 3](4.3-Event3/)
+&emsp;**Tên sự kiện:** Những Anh/ Chị chia sẽ trải nghiệm và kinh nghiệm về cuộc thi Hackathon
+
+&emsp;**Thời gian:** 09:00 - 12:00 ngày 25/07/2026
+
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự 
