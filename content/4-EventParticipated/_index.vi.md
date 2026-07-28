@@ -29,7 +29,7 @@ pre: " <b> 4. </b> "
 
 
 ### [Event 3](4.3-Event3/)
-&emsp;**Tên sự kiện:** Những Anh/ Chị chia sẽ trải nghiệm và kinh nghiệm về cuộc thi Hackathon
+&emsp;**Tên sự kiện:** FCAJ - AGENTIC AI BUILD WEEK
 
 &emsp;**Thời gian:** 09:00 - 12:00 ngày 25/07/2026
 

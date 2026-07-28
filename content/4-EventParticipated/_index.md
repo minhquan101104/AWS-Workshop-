@@ -30,7 +30,7 @@ During my 3-month internship, I had the opportunity to participate in two events
 
 
 ### [Event 3](4.3-Event3/)  
-&emsp;**Event Name:** Hackathon Experiences and Key Takeaways Shared by Seniors / Mentors
+&emsp;**Event Name:** FCAJ - AGENTIC AI BUILD WEEK
 
 &emsp;**Date & Time:** 09:00 - 12:00, July 25, 2026
 
