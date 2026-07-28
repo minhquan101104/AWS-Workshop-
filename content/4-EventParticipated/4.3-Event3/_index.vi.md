@@ -39,11 +39,11 @@ pre: " <b> 4.3. </b> "
 * **Tích hợp hệ thống:** Kết nối luồng hội thoại AI với các dịch vụ Backend và API thanh toán/vận chuyển, giúp quy trình đặt hàng diễn ra tự động, chính xác và mượt mà.
 
 #### Chủ đề 4: Hackathon Journey – 24 Hours of Building, Failing, and Learning (Đội ngũ: 3KA)
-* **Tâm lý & Thử thách thực chiến:** Tinh thần dấn thân vượt qua áp lực thiếu thời gian, thiếu kinh nghiệm AI/AWS ban đầu và cách xử lý các sự cố thực tế (như mất ngủ, quên commit code, va chạm luồng công việc) trong 24 giờ liên tục.  
-* **Giải pháp S.H.E.P.H.E.R.D:** Xây dựng hệ thống phân tích video camera tự động phát hiện mật độ đám đông, tình trạng hàng chờ và cảnh báo sớm nguy cơ ùn tắc bằng YOLO, ByteTrack và Amazon Bedrock Agent.  
+* **Tâm lý & Thử thách thực chiến:** Tinh thần dấn thân vượt qua áp lực thiếu thời gian, thiếu kinh nghiệm AI/AWS ban đầu và cách xử lý các sự cố thực tế (như mất ngủ, quên commit code, va chạm luồng công việc) trong 24 giờ liên tục.
+* **Giải pháp S.H.E.P.H.E.R.D:** Xây dựng hệ thống phân tích video camera tự động phát hiện mật độ đám đông, tình trạng hàng chờ và cảnh báo sớm nguy cơ ùn tắc bằng YOLO, ByteTrack và Amazon Bedrock Agent.
 * **Bài học cốt lõi (Key Takeaways):**
-    * **Tối ưu phạm vi (Scope it tiny):** Tập trung làm tốt một tính năng cốt lõi (MVP) thay vì tham vọng ý tưởng quá lớn nhưng dang dở.  
-    * **Chuẩn bị kỹ lưỡng:** Cần sẵn sàng bộ công cụ (starter template), phân chia vai trò rõ ràng (Code, Design, Pitch) và luyện tập kịch bản thuyết trình 3 phút. 
+    * **Tối ưu phạm vi (Scope it tiny):** Tập trung làm tốt một tính năng cốt lõi (MVP) thay vì tham vọng ý tưởng quá lớn nhưng dang dở.
+    * **Chuẩn bị kỹ lưỡng:** Cần sẵn sàng bộ công cụ (starter template), phân chia vai trò rõ ràng (Code, Design, Pitch) và luyện tập kịch bản thuyết trình 3 phút.
 
     #### Hình ảnh thực tế tại sự kiện
 
